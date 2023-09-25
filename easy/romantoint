@@ -1,0 +1,44 @@
+class Solution {
+    public int romanToInt(String s) {
+        int[] a= {1,5,10,50,100,500,1000};;
+        String c = "IVXLCDM";
+       
+        int sum =0;
+        
+
+        for (int i=0;i<s.length();i++)
+        {
+            int k = 0;
+            int v = 0;
+            for(int j=0;j<7;j++)
+            {               
+                if(s.charAt(i)==c.charAt(j))
+                {
+                    k=a[j];
+                }
+                if( i+1<s.length() && s.charAt(i+1)==c.charAt(j))
+                {
+                    v=a[j];
+                }
+                
+               
+            }
+            if(k>=v || v==0)
+            {
+                sum+=k;
+            }
+            else if(k<v)
+            {
+                sum+= (v-k);
+                i++;
+            }
+
+        }
+     return sum;
+        
+    }
+}
+
+
+        
+    
